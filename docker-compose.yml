@@ -1,0 +1,63 @@
+# yaml 配置
+version: '3'
+services:
+
+  kfk1:
+    image: "hadoop" # 使用的镜像名称
+    container_name: "hadoop-1"  # 创建的容器名称
+    build: .  # 指定 Dockerfile 所在文件夹的路径
+    ports:  # 端口映射 host:container
+     - "12345:22"
+    tty: true # 分配一个tty
+    privileged: true  # 特权模式，为了用systemctl
+    hostname: hadoop-1  # 修改hostname
+    volumes:
+      - "/home/xcq/下载/安装包们:/opt/downloads"
+    networks: # 配置网络
+      hadoop: # 网卡，网卡的配置在文件底部
+        ipv4_address: 172.18.0.2  # IP地址
+    extra_hosts:
+      hadoop2: 172.18.0.3
+      hadoop3: 172.18.0.4
+
+  kfk2:
+    image: "hadoop"
+    container_name: "hadoop-2"
+    build: .
+    ports:
+     - "12346:22"
+    tty: true
+    privileged: true
+    hostname: hadoop-2
+    volumes:
+      - "/home/xcq/下载/安装包们:/opt/downloads"
+    networks:
+      hadoop:
+        ipv4_address: 172.18.0.3
+    extra_hosts:
+      hadoop1: 172.18.0.2
+      hadoop3: 172.18.0.4
+
+  kfk3:
+    image: "hadoop"
+    container_name: "hadoop-3"
+    build: .
+    ports:
+     - "12347:22"
+    tty: true
+    privileged: true
+    hostname: hadoop-3
+    volumes:
+      - "/home/xcq/下载/安装包们:/opt/downloads"
+    networks:
+      hadoop:
+        ipv4_address: 172.18.0.4
+    extra_hosts:
+      hadoop2: 172.18.0.3
+      hadoop3: 172.18.0.4
+
+networks:
+  hadoop:
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
