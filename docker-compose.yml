@@ -12,7 +12,7 @@ services:
     privileged: true  # 特权模式，为了用systemctl
     hostname: hadoop-1  # 修改hostname
     volumes:
-      - "/home/xcq/下载/安装包们:/opt/downloads"
+      - "/home/xcq/projects/Hadoop-news/node-data/hadoop1:/opt"
     networks: # 配置网络
       hadoop: # 网卡，网卡的配置在文件底部
         ipv4_address: 172.18.0.2  # IP地址
@@ -30,7 +30,7 @@ services:
     privileged: true
     hostname: hadoop-2
     volumes:
-      - "/home/xcq/下载/安装包们:/opt/downloads"
+      - "/home/xcq/projects/Hadoop-news/node-data/hadoop2:/opt"
     networks:
       hadoop:
         ipv4_address: 172.18.0.3
@@ -48,7 +48,7 @@ services:
     privileged: true
     hostname: hadoop-3
     volumes:
-      - "/home/xcq/下载/安装包们:/opt/downloads"
+      - "/home/xcq/projects/Hadoop-news/node-data/hadoop3:/opt"
     networks:
       hadoop:
         ipv4_address: 172.18.0.4
