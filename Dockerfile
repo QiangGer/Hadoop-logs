@@ -29,7 +29,9 @@ RUN \
   && echo "%kfk ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
   # 解压jdk 再删掉压缩包
   && tar -zxf /opt/jdk-8u231-linux-x64.tar.gz -C /usr/local/lib \
-  && rm /opt/jdk-8u231-linux-x64.tar.gz
+  && rm /opt/jdk-8u231-linux-x64.tar.gz \
+  # 这主要是为了让容器在ssh连接时，能正确更新环境变量
+  && echo "export $(sudo cat /proc/1/environ |tr '\0' '\n' | grep -v '^HOME' | xargs)" >> /etc/profile
 
 # 让init成为前台进程，启动后不会秒退，并且，只有init成为1号进程才可以使用systemctl命令，当然，还需在特权模式运行
 CMD ["/usr/sbin/init"]
