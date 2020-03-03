@@ -17,8 +17,8 @@ services:
       hadoop: # 网卡，网卡的配置在文件底部
         ipv4_address: 172.18.0.2  # IP地址
     extra_hosts:
-      hadoop2: 172.18.0.3
-      hadoop3: 172.18.0.4
+      hadoop-2: 172.18.0.3
+      hadoop-3: 172.18.0.4
 
   kfk2:
     image: "hadoop"
@@ -35,8 +35,8 @@ services:
       hadoop:
         ipv4_address: 172.18.0.3
     extra_hosts:
-      hadoop1: 172.18.0.2
-      hadoop3: 172.18.0.4
+      hadoop-1: 172.18.0.2
+      hadoop-3: 172.18.0.4
 
   kfk3:
     image: "hadoop"
@@ -53,8 +53,8 @@ services:
       hadoop:
         ipv4_address: 172.18.0.4
     extra_hosts:
-      hadoop2: 172.18.0.3
-      hadoop3: 172.18.0.4
+      hadoop-2: 172.18.0.3
+      hadoop-3: 172.18.0.4
 
 networks:
   hadoop:
