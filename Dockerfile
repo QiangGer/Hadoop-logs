@@ -15,8 +15,8 @@ RUN \
   # 调整容器的时间到东八区
   && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
   && echo 'Asia/Shanghai' >/etc/timezone \
-  # 下载必要的工具 which是后来发现需要的
-  && yum install -y net-tools openssh-server openssh-clients sudo which \
+  # 下载必要的工具 which是hdfs格式化时需要的 expect是ssh自动配置需要的
+  && yum install -y net-tools openssh-server openssh-clients sudo which expect \
   # 删除下载缓存
   && yum clean all \
   # 添加新用户kfk
@@ -31,7 +31,9 @@ RUN \
   && tar -zxf /opt/jdk-8u231-linux-x64.tar.gz -C /usr/local/lib \
   && rm /opt/jdk-8u231-linux-x64.tar.gz \
   # 这主要是为了让容器在ssh连接时，能正确更新环境变量
-  && echo "export $(sudo cat /proc/1/environ |tr '\0' '\n' | grep -v '^HOME' | xargs)" >> /etc/profile
+  && echo "export $(sudo cat /proc/1/environ |tr '\0' '\n' | grep -v -E '^H|^T' | xargs)" >> /etc/profile \
+  # 不知道什么原因，$USER这个环境变量会缺失，在此补上，不管root用户
+  && echo "export USER=kfk" >> /home/kfk/.bashrc
 
 # 让init成为前台进程，启动后不会秒退，并且，只有init成为1号进程才可以使用systemctl命令，当然，还需在特权模式运行
 CMD ["/usr/sbin/init"]
