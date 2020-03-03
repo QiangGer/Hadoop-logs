@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+<configuration>
+
+<!-- Site specific YARN configuration properties -->
+
+  <!--在Yarn上开启MR的必须项-->
+  <property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.hostname</name>
+    <value>hadoop-1</value>
+  </property>
+  
+  <!--yarn的日志汇聚-->
+  <!--日志聚合是yarn提供的日志中央化管理功能。默认container的日志在nodemanager上，这个操作将其存入hdfs-->
+  <property>
+    <name>yarn.log-aggregation-enable</name>
+    <value>true</value>
+  </property>
+  <!--过期时间-->
+  <property>
+    <name>yarn.log-aggregation.retain-seconds</name>
+    <value>1000</value>
+  </property>
+
+</configuration>
