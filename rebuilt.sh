@@ -23,8 +23,14 @@ cp -rf ./node-data/hadoop1/modules/hadoop-2.5.0/* ./node-data/hadoop2/modules/ha
 cp -rf ./node-data/hadoop1/modules/hadoop-2.5.0/* ./node-data/hadoop3/modules/hadoop-2.5.0
 
 # 删除zookeeper的日志,保留myid
-ls ./node-data/hadoop1/modules/zookeeper-3.4.5-cdh5.10.0/zkData | grep -v myid | xargs rm -rf {}
-ls ./node-data/hadoop2/modules/zookeeper-3.4.5-cdh5.10.0/zkData | grep -v myid | xargs rm -rf {}
-ls ./node-data/hadoop3/modules/zookeeper-3.4.5-cdh5.10.0/zkData | grep -v myid | xargs rm -rf {}
+cd ./node-data/hadoop1/modules/zookeeper-3.4.5-cdh5.10.0/zkData
+ls | grep -v myid | xargs -i -t rm -rf {}
+cd /home/xcq/projects/Hadoop-news
+cd ./node-data/hadoop2/modules/zookeeper-3.4.5-cdh5.10.0/zkData
+ls | grep -v myid | xargs -i -t rm -rf {}
+cd /home/xcq/projects/Hadoop-news
+cd ./node-data/hadoop3/modules/zookeeper-3.4.5-cdh5.10.0/zkData
+ls | grep -v myid | xargs -i -t rm -rf {}
+
 
 
