@@ -31,6 +31,8 @@
 
 
 
+
+
 ### day-2
 
 #### 成果
@@ -94,3 +96,29 @@ Shell 的四种模式还有疑惑，需要去学习。
 
 **启动 ZooKeeper**：
 ![ZooKeeper](http://pic.xcq5120.xyz/hadoopNews-day3-1.png)
+
+
+
+
+
+### day-4
+
+#### 成果
+
+学习配置并测试 HDFS HA 
+
+修复了一些bug
+
+#### 难点
+
+HA 的正确配置以及集群的正确启动顺序
+
+active 不能正确切换的 debug
+
+#### 疑惑
+
+暂无
+
+#### 部分效果展示
+**HDFS HA 的测试**：
+![HDFS HA](http://pic.xcq5120.xyz/hadoopNews-day4-1.png)
