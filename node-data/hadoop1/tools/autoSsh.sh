@@ -20,6 +20,5 @@ ssh_copy_id_to_all() {
     done 
 } 
  
-rm -rf /home/kfk/.ssh
 ssh-keygen -t rsa -f /home/kfk/.ssh/id_rsa -P "" 
 ssh_copy_id_to_all
