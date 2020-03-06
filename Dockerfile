@@ -15,8 +15,8 @@ RUN \
   # 调整容器的时间到东八区
   && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
   && echo 'Asia/Shanghai' >/etc/timezone \
-  # 下载必要的工具 which是hdfs格式化时需要的 expect是ssh自动配置需要的
-  && yum install -y net-tools openssh-server openssh-clients sudo which expect \
+  # 下载必要的工具 which是hdfs格式化时需要的 expect是ssh自动配置需要的 psmisc是hdfs ha所需要的
+  && yum install -y net-tools openssh-server openssh-clients sudo which expect psmisc \
   # 删除下载缓存
   && yum clean all \
   # 添加新用户kfk
