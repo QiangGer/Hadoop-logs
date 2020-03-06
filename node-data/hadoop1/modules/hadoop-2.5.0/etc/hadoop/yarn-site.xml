@@ -16,16 +16,52 @@
 
 <!-- Site specific YARN configuration properties -->
 
+  <property>
+    <name>yarn.resourcemanager.ha.enabled</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.cluster-id</name>
+    <value>yarn-HA</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.ha.rm-ids</name>
+    <value>rm1,rm2</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.hostname.rm1</name>
+    <value>hadoop-1</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.hostname.rm2</name>
+    <value>hadoop-2</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.zk-address</name>
+    <value>hadoop-1:2181,hadoop-2:2181,hadoop-3:2181</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.recovery.enabled</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.store.class</name>
+    <value>org.apache.hadoop.yarn.server.resourcemanager.recovery.ZKRMStateStore</value>
+  </property>
+
+
   <!--在Yarn上开启MR的必须项-->
   <property>
     <name>yarn.nodemanager.aux-services</name>
     <value>mapreduce_shuffle</value>
   </property>
 
-  <property>
+  <!--yarnHA后，该字段可以去掉-->
+<!--   <property>
     <name>yarn.resourcemanager.hostname</name>
     <value>hadoop-1</value>
-  </property>
+  </property> -->
   
   <!--yarn的日志汇聚-->
   <!--日志聚合是yarn提供的日志中央化管理功能。默认container的日志在nodemanager上，这个操作将其存入hdfs-->
