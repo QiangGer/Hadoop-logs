@@ -1,5 +1,7 @@
 #!bash
 
+# 此脚本需要再优雅些，凑合先用
+
 cd /home/xcq/projects/Hadoop-news
 
 docker-compose stop
@@ -25,12 +27,21 @@ cp -rf ./node-data/hadoop1/modules/hadoop-2.5.0/* ./node-data/hadoop3/modules/ha
 # 删除zookeeper的日志,保留myid
 cd ./node-data/hadoop1/modules/zookeeper-3.4.5-cdh5.10.0/zkData
 ls | grep -v myid | xargs -i -t rm -rf {}
+cd ..
+rm zookeeper.out
+
 cd /home/xcq/projects/Hadoop-news
 cd ./node-data/hadoop2/modules/zookeeper-3.4.5-cdh5.10.0/zkData
 ls | grep -v myid | xargs -i -t rm -rf {}
+cd ..
+rm zookeeper.out
+
 cd /home/xcq/projects/Hadoop-news
 cd ./node-data/hadoop3/modules/zookeeper-3.4.5-cdh5.10.0/zkData
 ls | grep -v myid | xargs -i -t rm -rf {}
+cd ..
+rm zookeeper.out
 
+# zookeeper.out删除会有问题，因为out文件产生是取决于第一次执行脚本的位置，待修复
 
 
