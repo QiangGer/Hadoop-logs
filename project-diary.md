@@ -101,11 +101,11 @@ Shell 的四种模式还有疑惑，需要去学习。
 
 
 
-### day-4
+### day-4和day-5
 
 #### 成果
 
-学习配置并测试 HDFS HA 
+学习配置并测试 HDFS HA 以及 Yarn HA
 
 修复了一些bug
 
@@ -122,3 +122,5 @@ active 不能正确切换的 debug
 #### 部分效果展示
 **HDFS HA 的测试**：
 ![HDFS HA](http://pic.xcq5120.xyz/hadoopNews-day4-1.png)
+
+**Yarn HA 可通过浏览器和执行 MapReduce 任务检验，比较繁琐，就不截图了**
