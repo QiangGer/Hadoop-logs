@@ -124,3 +124,23 @@ active 不能正确切换的 debug
 ![HDFS HA](http://pic.xcq5120.xyz/hadoopNews-day4-1.png)
 
 **Yarn HA 可通过浏览器和执行 MapReduce 任务检验，比较繁琐，就不截图了**
+
+
+
+
+
+### day-6
+
+#### 成果
+
+学习配置测试 HBase
+
+#### 难点
+
+无
+
+#### 疑惑
+
+几个无关紧要的 warning 很想去掉，折腾了半天都没解决
+
+#### 部分效果展示
