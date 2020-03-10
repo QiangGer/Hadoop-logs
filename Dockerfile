@@ -3,7 +3,7 @@ FROM centos:7
 MAINTAINER xcq
 
 # 需在当前目录下准备jdk安装包
-COPY jdk-8u231-linux-x64.tar.gz /opt/jdk-8u231-linux-x64.tar.gz
+COPY node-data/hadoop1/softwares/jdk-8u231-linux-x64.tar.gz /opt/jdk-8u231-linux-x64.tar.gz
 
 # 环境变量
 ENV JAVA_HOME=/usr/local/lib/jdk1.8.0_231 JRE_HOME=/usr/local/lib/jdk1.8.0_231/jre 
