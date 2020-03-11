@@ -32,6 +32,8 @@ RUN \
   && rm /opt/jdk-8u231-linux-x64.tar.gz \
   # 这主要是为了让容器在ssh连接时，能正确更新环境变量
   && echo "export $(sudo cat /proc/1/environ |tr '\0' '\n' | grep -v -E '^H|^T' | xargs)" >> /etc/profile \
+  # 添加中文支持
+  && echo 'export LANG="en_US.UTF-8"' >> /etc/profile \
   # 不知道什么原因，$USER这个环境变量会缺失，在此补上，不管root用户
   && echo "export USER=kfk" >> /home/kfk/.bashrc
 
