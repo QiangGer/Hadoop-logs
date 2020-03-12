@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+  <!--冗余数量-->
+  <property>
+    <name>dfs.replication</name>
+    <value>2</value>
+  </property>
+  <!--这个参数可以禁止hdfs进行权限检查。理论上本项目的kfk用户权限已经很高，但是，yarn聚合的日志kfk仍然没有权限读写，因此直接ban掉权限检查-->
+  <!--这个解决方法可能不是很优雅，但由于是学习，且为了避免后续开发会遇到类似的问题，暂时先ban掉-->
+  <property>
+    <name>dfs.permissions.enable</name>
+    <value>false</value>
+  </property>
+
+  <!--HA部分-->
+
+  <property>
+    <name>dfs.nameservices</name>
+    <value>mycluster</value>
+  </property>
+
+  <property>
+    <name>dfs.ha.namenodes.mycluster</name>
+    <value>nn1,nn2</value>
+  </property>
+
+  <property>
+    <name>dfs.namenode.rpc-address.mycluster.nn1</name>
+    <value>hadoop-1:8020</value>
+  </property>
+  <property>
+    <name>dfs.namenode.rpc-address.mycluster.nn2</name>
+    <value>hadoop-2:8020</value>
+  </property>
+
+  <property>
+    <name>dfs.namenode.http-address.mycluster.nn1</name>
+    <value>hadoop-1:50070</value>
+  </property>
+  <property>
+    <name>dfs.namenode.http-address.mycluster.nn2</name>
+    <value>hadoop-2:50070</value>
+  </property>
+
+  <property>
+    <name>dfs.namenode.shared.edits.dir</name>
+    <value>qjournal://hadoop-1:8485;hadoop-2:8485;hadoop-3:8485/mycluster</value>
+  </property>
+
+  <property>
+    <name>dfs.journalnode.edits.dir</name>
+    <value>/opt/modules/hadoop-2.5.0/data/jn</value>
+  </property>
+
+  <property>
+    <name>dfs.client.failover.proxy.provider.mycluster</name>
+    <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+  </property>
+
+  <property>
+    <name>dfs.ha.fencing.methods</name>
+    <value>sshfence</value>
+  </property>
+
+  <property>
+    <name>dfs.ha.fencing.ssh.private-key-files</name>
+    <value>/home/kfk/.ssh/id_rsa</value>
+  </property>
+  
+  <property>
+    <name>dfs.ha.automatic-failover.enabled.mycluster</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>ha.zookeeper.quorum</name>
+    <value>hadoop-1:2181,hadoop-2:2181,hadoop-3:2181</value>
+  </property>
+
+</configuration>
