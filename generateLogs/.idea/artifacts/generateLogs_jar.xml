@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="generateLogs:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/generateLogs_jar</output-path>
+    <root id="archive" name="generateLogs.jar">
+      <element id="module-output" name="generateLogs" />
+    </root>
+  </artifact>
+</component>
