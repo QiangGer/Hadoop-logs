@@ -49,6 +49,9 @@ do
   rm -rf /home/xcq/projects/Hadoop-news/node-data/$i/modules/flume-1.7.0-bin/logs/*
 done
 
+# 清空日志文件
+: > /home/xcq/projects/Hadoop-news/node-data/hadoop2/data/weblogs.log
+: > /home/xcq/projects/Hadoop-news/node-data/hadoop3/data/weblogs.log
 
 
 # # 删除 hbase 日志
