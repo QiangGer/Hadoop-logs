@@ -79,17 +79,16 @@ public class KfkAsyncHbaseEventSerializer implements AsyncHbaseEventSerializer {
         String[] columns = new String(payloadColumn).split(",");
         String[] values = new String(payload).split(",");
 
+        String datetime = values[0].toString();
+        String userid = values[1].toString();
+        rowKey = SimpleRowKeyGenerator.getKfkRowKey(userid, datetime);
+
         for (int i = 0; i < columns.length; i++) {
 
           if(columns.length != values.length) break;
 
           byte[] column = columns[i].getBytes();
           byte[] value = values[i].getBytes(Charsets.UTF_8);
-
-          String datetime = values[0].toString();
-          String userid = values[1].toString();
-
-          rowKey = SimpleRowKeyGenerator.getKfkRowKey(userid, datetime);
 
           PutRequest putRequest = new PutRequest(table, rowKey, cf,
               column, value);
