@@ -11,19 +11,19 @@ docker-compose rm -f
 docker rmi hadoop
 
 # 删除日志
-rm -rf ./node-data/hadoop1/modules/hadoop-2.5.0/logs
+rm -rf ./node-data/hadoop1/modules/hadoop-2.5.0-cdh5.3.6/logs
 
 # 删除hdfs存储内容
-rm -rf ./node-data/hadoop1/modules/hadoop-2.5.0/data/tmp/*
-rm -rf ./node-data/hadoop1/modules/hadoop-2.5.0/data/jn/*
+rm -rf ./node-data/hadoop1/modules/hadoop-2.5.0-cdh5.3.6/data/tmp/*
+rm -rf ./node-data/hadoop1/modules/hadoop-2.5.0-cdh5.3.6/data/jn/*
 
 # 删除slave上的hadoop
-rm -rf ./node-data/hadoop2/modules/hadoop-2.5.0/*
-rm -rf ./node-data/hadoop3/modules/hadoop-2.5.0/*
+rm -rf ./node-data/hadoop2/modules/hadoop-2.5.0-cdh5.3.6/*
+rm -rf ./node-data/hadoop3/modules/hadoop-2.5.0-cdh5.3.6/*
 
 # 把主节点的hadoop拷贝过去
-cp -rf ./node-data/hadoop1/modules/hadoop-2.5.0/* ./node-data/hadoop2/modules/hadoop-2.5.0
-cp -rf ./node-data/hadoop1/modules/hadoop-2.5.0/* ./node-data/hadoop3/modules/hadoop-2.5.0
+cp -rf ./node-data/hadoop1/modules/hadoop-2.5.0-cdh5.3.6/* ./node-data/hadoop2/modules/hadoop-2.5.0-cdh5.3.6
+cp -rf ./node-data/hadoop1/modules/hadoop-2.5.0-cdh5.3.6/* ./node-data/hadoop3/modules/hadoop-2.5.0-cdh5.3.6
 
 
 # 删除zookeeper的缓存,保留myid
@@ -48,6 +48,13 @@ do
   rm -rf /home/xcq/projects/Hadoop-news/node-data/$i/modules/flume-1.7.0-bin/nohup.out
   rm -rf /home/xcq/projects/Hadoop-news/node-data/$i/modules/flume-1.7.0-bin/logs/*
 done
+
+rm -rf /home/xcq/projects/Hadoop-news/node-data/hadoop3/modules/hive-0.13.1-cdh5.3.6/logs/*
+rm -rf /home/xcq/projects/Hadoop-news/node-data/hadoop3/modules/hive-0.13.1-cdh5.3.6/nohup.out
+
+rm -rf /home/xcq/projects/Hadoop-news/node-data/hadoop3/modules/hue-3.7.0-cdh5.3.6/logs/*
+rm -rf /home/xcq/projects/Hadoop-news/node-data/hadoop3/modules/hue-3.7.0-cdh5.3.6/desktop/logs/*
+
 
 # 清空日志文件
 : > /home/xcq/projects/Hadoop-news/node-data/hadoop2/data/weblogs.log
