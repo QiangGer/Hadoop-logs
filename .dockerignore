@@ -1,0 +1,6 @@
+generateLogs/*
+*.md
+node-data/*
+.git/*
+!node-data/hadoop1/softwares/jdk1.8.0_231
+
