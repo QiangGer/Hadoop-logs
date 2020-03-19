@@ -43,7 +43,17 @@
   <!--Hadoop的临时目录，其它目录（editlog，Fsimage等）会基于此路径。默认值为/tmp/hadoop-${user.name} -->
   <property>
     <name>hadoop.tmp.dir</name>
-    <value>/opt/modules/hadoop-2.5.0/data/tmp</value>
+    <value>/opt/modules/hadoop-2.5.0-cdh5.3.6/data/tmp</value>
   </property>
+
+  <property>
+    <name>hadoop.proxyuser.hue.hosts</name>
+    <value>*</value>
+  </property>
+  <property>
+    <name>hadoop.proxyuser.hue.groups</name>
+    <value>*</value>
+  </property>
+
 
 </configuration>

@@ -66,7 +66,7 @@
 
   <property>
     <name>dfs.journalnode.edits.dir</name>
-    <value>/opt/modules/hadoop-2.5.0/data/jn</value>
+    <value>/opt/modules/hadoop-2.5.0-cdh5.3.6/data/jn</value>
   </property>
 
   <property>
