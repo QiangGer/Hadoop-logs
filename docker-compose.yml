@@ -6,8 +6,8 @@ services:
     image: "hadoop" # 使用的镜像名称
     container_name: "hadoop-1"  # 创建的容器名称
     build: .  # 指定 Dockerfile 所在文件夹的路径
-    ports:  # 端口映射 host:container
-     - "12345:22"
+    # ports:  # 端口映射 host:container
+    #  - "12345:22"
     tty: true # 分配一个tty
     privileged: true  # 特权模式，为了用systemctl
     hostname: hadoop-1  # 修改hostname
@@ -24,8 +24,8 @@ services:
     image: "hadoop"
     container_name: "hadoop-2"
     build: .
-    ports:
-     - "12346:22"
+    # ports:
+    #  - "12346:22"
     tty: true
     privileged: true
     hostname: hadoop-2
@@ -42,8 +42,8 @@ services:
     image: "hadoop"
     container_name: "hadoop-3"
     build: .
-    ports:
-     - "12347:22"
+    # ports:
+    #  - "12347:22"
     tty: true
     privileged: true
     hostname: hadoop-3
