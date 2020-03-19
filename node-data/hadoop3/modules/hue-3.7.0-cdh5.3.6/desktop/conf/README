@@ -1,0 +1,33 @@
+
+
+
+# 编译需要的包
+gcc g++ libxml2-devel libxslt-devel cyrus-sasl-devel cyrus-sasl-gssapi cyrus-sasl-plain mysql-devel python-devel python-setuptools sqlite-devel ant libsasl2-dev libsasl2-modules-gssapi-mit libkrb5-dev libtidy-0.99-0 mvn openldap-dev make gcc-c++ gmp gmp-devel openldap-devel 
+
+
+
+# 编译报错的一个解决办法
+解决方法：进入u/usr/include/openssl/x509.h 文件，然后把751，和752行的数据删掉，就行。
+
+　　X509_REVOKED *X509_REVOKED_dup(X509_REVOKED *rev);
+　　X509_REQ *X509_REQ_dup(X509_REQ *req);
+
+　　注意：使用root删，普通用户可能删不掉，我当时用的普通用户，看着删掉了，重新打开还有，一直以为这个方法不能用。记住，删掉之后，重新编译。
+
+
+# 中文
+
+vi /opt/soft/hadoop/hue-3.10.0/desktop/core/src/desktop/settings.py
+
+LANGUAGE_CODE = 'zh_CN'
+#LANGUAGE_CODE = 'en-us'
+
+LANGUAGES = [
+('en-us', ('English')),
+('zh_CN', ('Simplified Chinese')),
+]
+
+
+
+
+chmod o+w desktop/desktop.db
