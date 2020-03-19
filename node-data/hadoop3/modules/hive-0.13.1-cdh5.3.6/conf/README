@@ -1,0 +1,38 @@
+一些必要的准备
+
+
+# mysql 下载安装
+
+# 修改配置文件 与mysql集成 zookeeper
+
+# jar 包放入lib
+
+
+# 导包
+export HBASE_HOME=/opt/modules/hbase-0.98.6-cdh5.3.0
+export HIVE_HOME=/opt/modules/hive-0.13.1-cdh5.3.6
+ln -s $HBASE_HOME/lib/hbase-server-0.98.6-cdh5.3.0.jar $HIVE_HOME/lib/hbase-server-0.98.6-cdh5.3.0.jar
+ln -s $HBASE_HOME/lib/hbase-client-0.98.6-cdh5.3.0.jar $HIVE_HOME/lib/hbase-client-0.98.6-cdh5.3.0.jar
+ln -s $HBASE_HOME/lib/hbase-protocol-0.98.6-cdh5.3.0.jar $HIVE_HOME/lib/hbase-protocol-0.98.6-cdh5.3.0.jar 
+ln -s $HBASE_HOME/lib/hbase-it-0.98.6-cdh5.3.0.jar $HIVE_HOME/lib/hbase-it-0.98.6-cdh5.3.0.jar 
+ln -s $HBASE_HOME/lib/htrace-core-2.04.jar $HIVE_HOME/lib/htrace-core-2.04.jar
+ln -s $HBASE_HOME/lib/hbase-hadoop2-compat-0.98.6-cdh5.3.0.jar $HIVE_HOME/lib/hbase-hadoop2-compact-0.98.6-cdh5.3.0.jar 
+ln -s $HBASE_HOME/lib/hbase-hadoop-compat-0.98.6-cdh5.3.0.jar $HIVE_HOME/lib/hbase-hadoop-compact-0.98.6-cdh5.3.0.jar 
+ln -s $HBASE_HOME/lib/high-scale-lib-1.1.1.jar $HIVE_HOME/lib/high-scale-lib-1.1.1.jar 
+ln -s $HBASE_HOME/lib/hbase-common-0.98.6-cdh5.3.0.jar $HIVE_HOME/lib/hbase-common-0.98.6-cdh5.3.0.jar 
+
+
+# 建表
+CREATE EXTERNAL TABLE weblogs(
+id string,
+datetime string,
+userid string,
+searchname string,
+retorder string,
+cliorder string,
+cliurl string
+)
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES("hbase.columns.mapping"=
+":key,info:datetime,info:userid,info:searchname,info:retorder,info:cliorder,info:cliurl")
+TBLPROPERTIES("hbase.table.name"="weblogs");
