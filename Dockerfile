@@ -2,8 +2,8 @@ FROM centos:7
 
 MAINTAINER xcq
 
-# 需在当前目录下准备jdk安装包
-COPY node-data/hadoop1/softwares/jdk-8u231-linux-x64.tar.gz /opt/jdk-8u231-linux-x64.tar.gz
+# jdk准备
+COPY node-data/hadoop1/softwares/jdk1.8.0_231 /usr/local/lib/jdk1.8.0_231
 
 # 环境变量
 ENV JAVA_HOME=/usr/local/lib/jdk1.8.0_231 JRE_HOME=/usr/local/lib/jdk1.8.0_231/jre 
@@ -27,9 +27,6 @@ RUN \
   && echo "root:1234" | chpasswd \
   # 让kfk在使用sudo时无需再输密码
   && echo "%kfk ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
-  # 解压jdk 再删掉压缩包
-  && tar -zxf /opt/jdk-8u231-linux-x64.tar.gz -C /usr/local/lib \
-  && rm /opt/jdk-8u231-linux-x64.tar.gz \
   # 这主要是为了让容器在ssh连接时，能正确更新环境变量
   && echo "export $(sudo cat /proc/1/environ |tr '\0' '\n' | grep -v -E '^H|^T' | xargs)" >> /etc/profile \
   # 添加中文支持
