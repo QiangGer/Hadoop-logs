@@ -239,3 +239,26 @@ hue 模块的编译集成测试
  ### 部分效果展示
  **Hue 的测试**：
 ![Hbase](http://pic.xcq5120.xyz/hadoopNews-day11-1.png)
+
+
+
+
+
+## day-12
+
+ ### 成果
+安装 maven scale 等组件。
+Spark 的编译和使用。
+
+ ### 难点
+修改编译脚本来加速。
+版本的兼容。
+
+ ### 疑惑
+Spark 的基本数据结构需要花时间学习。
+
+ ### 部分效果展示
+ **Spark 的测试**：
+![Spark](http://pic.xcq5120.xyz/hadoopNews-day12-2.png)
+**Spark Web UI**：
+![Spark2](http://pic.xcq5120.xyz/hadoopNews-day12-1.png)
