@@ -156,7 +156,7 @@
     nohup ./opt/modules/hive-0.13.1-cdh5.3.6/bin/hiveserver2 &
     ```
 
-17. 编译 Hue
+17. 编译并启动 Hue
 
     ``` shell
     # 确保编译相关的依赖正常后再编译，相关依赖在 conf 目录下
