@@ -93,7 +93,7 @@
 10. 启动日志聚合服务
 
     ``` shell
-    ./opt/modules/hadoop-2.5.0/sbin/hadoop-daemon.sh start historyserver
+    ./opt/modules/hadoop-2.5.0/sbin/mr-jobhistory-daemon.sh  start historyserver
     ```
 
 11. 启动 Hbase
