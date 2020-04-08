@@ -248,10 +248,12 @@ hue 模块的编译集成测试
 
  ### 成果
 安装 maven scale 等组件。
+
 Spark 的编译和使用。
 
  ### 难点
 修改编译脚本来加速。
+
 版本的兼容。
 
  ### 疑惑
@@ -269,19 +271,32 @@ Spark 的基本数据结构需要花时间学习。
 
  ### 成果
  配置 Spark 开发环境，并创建IDEA Maven 工程。
+
  开发 Spark Application 程序并进行本地调试。
+
  打 Jar 包并提交 Spark-submit 运行。
+
  Spark Standalone 集群模式配置和测试。
+
  Spark on Yarn 集群模式配置和测试 。
+
+
 
  ### 难点
 打 Jar 包时，主类默认为 Java 类，最后需修改成 Scala 对象。
+
 Spark 项目的日志保存并查看。
+
 Spark on Yarn 模式下，spark-shell 的 webUI 会被随机“Filter”到一个空闲的机器上，从而可能导致无法正常通过 Yarn 界面访问。这个问题是无解的（2020.4月），因为Yarn 的机制决定了这个问题。好在 Spark-shell 基本上不会在 Yarn 下用，一般都是 standalone 状态下用。
+
+
 
  ### 疑惑
 除了 Yarn log 的方式，不知是否有办法直接通过 webUI 浏览已结束的 Spark 任务日志。
+
 短时间大量 submit 任务会导致 NodeManager 内存不足而进入 unhealthy 状态，不知是否和修改了 Yarn vmem-check 和 pmem-check 有关。但若机器内存充足，此问题一定不会发送。
+
+
 
  ### 部分效果展示
  **Spark Standalone**：
