@@ -353,3 +353,33 @@ Spark SQL 和 HBase 集成后，若运行例如  select count *  命令，则会
 ![Spark-standalone](http://pic.xcq5120.xyz/hadoopNews-day14-1.png)
 **Spark SQL 和 HBase 的集成**：
 ![Spark-on-yarn](http://pic.xcq5120.xyz/hadoopNews-day14-2.png)
+
+
+
+## day-15
+
+ ### 成果
+升级 Kafka 版本，用于集成 Structured Streaming。
+
+Structured Streaming 集成 Mysql。
+
+基于结构化流完成业务数据实时分析。
+
+
+
+ ### 难点
+Kafka 升级后，原先的 topic 失效了，导致服务无法正常使用，debug 花了很长时间。
+
+
+
+ ### 疑惑
+无。
+
+
+
+ ### 部分效果展示
+
+ **基于结构化流完成业务数据实时分析**：
+![Spark-standalone](http://pic.xcq5120.xyz/hadoopNews-day15-1.png)
+**基于结构化流完成业务数据实时分析**：
+![Spark-on-yarn](http://pic.xcq5120.xyz/hadoopNews-day15-2.png)
