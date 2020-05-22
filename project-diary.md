@@ -383,3 +383,38 @@ Kafka 升级后，原先的 topic 失效了，导致服务无法正常使用，d
 ![Spark-standalone](http://pic.xcq5120.xyz/hadoopNews-day15-1.png)
 **基于结构化流完成业务数据实时分析**：
 ![Spark-on-yarn](http://pic.xcq5120.xyz/hadoopNews-day15-2.png)
+
+
+## day-16
+
+ ### 成果
+下载 Tomcat 并创建 Web 工程。
+
+Web 系统数据处理层开发。
+
+基于 Echarts 的页面展示曾开发。
+
+工程编译并打包发布。
+
+确认项目最终效果。
+
+
+
+ ### 难点
+工程打包时，依赖的处理。
+
+Docker 内 Tomcat 的配置。
+
+修复中文乱码。
+
+
+
+ ### 疑惑
+无。
+
+
+
+ ### 部分效果展示
+
+ **最终效果确认**：
+![Final](http://pic.xcq5120.xyz/hadoopNews-day16-1.png)
