@@ -1,6 +1,6 @@
 # Hadoop-logs
 
-这是一个 **正在开发的** 基于分布式大数据平台的日志存储分析处理及可视化系统
+这是一个基于分布式大数据平台的日志存储、分析及可视化系统
 
 
 
@@ -24,7 +24,7 @@
 
 ## 架构
 
-**待补充**
+![架构](http://pic.xcq5120.xyz/hadoopNews-structures.png)
 
 
 
@@ -51,14 +51,14 @@
 
    ``` shell
    # 注意，这是初始化时才要做的，只需配置一次即可。hadoop-1 和 hadoop-2 都需要做
-   ./opt/tools/autoSsh.sh
+   bash /opt/tools/autoSsh.sh
    ```
 
 2. 启动 ZooKeeper 集群
 
    ``` shell
    # 在 hadoop-1 上单独启动集群，下面的命令无特殊说明均在 hadoop-1 上执行
-   ./opt/tools/zoo.sh
+   bash /opt/tools/zoo.sh
    ```
 
 3. 启动 JournalNode 集群 
@@ -75,55 +75,68 @@
 
    ``` bash
    # 3 - 8 步以及集成在 first.sh 中，方便集群创建后的初始化
-   ./opt/tools/first.sh
+   bash /opt/tools/first.sh
    # 若非首次使用，则无需进行格式化，直接启动 HDFS 和zkfc 即可
-   ./opt/modules/hadoop-2.5.0/sbin/start-dfs.sh
+   cd /opt/modules/hadoop-2.5.0-cdh5.3.6
+   ./sbin/start-dfs.sh
    # zkfc 需在 hadoo-1 和 hadoop-2 上执行
-   ./opt/modules/hadoop-2.5.0/sbin/hadoop-daemon.sh start zkfc 
+   cd /opt/modules/hadoop-2.5.0-cdh5.3.6
+   ./sbin/hadoop-daemon.sh start zkfc 
    ```
 
 9. 启动 Yarn 集群（需手动启动备用 ResourceManager ）
 
    ``` bash
-   ./opt/modules/hadoop-2.5.0/sbin/start-yarn.sh
+   cd /opt/modules/hadoop-2.5.0-cdh5.3.6
+   ./sbin/start-yarn.sh
    # 去另一节点（hadoop-2）
-   ./opt/modules/hadoop-2.5.0/sbin/yarn-daemon.sh start resourcemanager    
+   cd /opt/modules/hadoop-2.5.0-cdh5.3.6
+   ./sbin/yarn-daemon.sh start resourcemanager    
    ```
 
 10. 启动日志聚合服务
 
     ``` shell
-    ./opt/modules/hadoop-2.5.0/sbin/mr-jobhistory-daemon.sh  start historyserver
+    cd /opt/modules/hadoop-2.5.0-cdh5.3.6
+    ./sbin/mr-jobhistory-daemon.sh  start historyserver
     ```
 
 11. 启动 Hbase
 
     ``` shell
-    ./opt/modules/hbase-0.98.6-cdh5.3.0/bin/start-hbase.sh
-    # 略去建表等操作
+    cd /opt/modules/hbase-0.98.6-cdh5.3.0
+    ./bin/start-hbase.sh
+    # 建表
+    ./hbase shell
+    create 'weblogs','info';
     ```
 
 12. 启动 Kafka
 
     ``` shell
-    ./opt/tools/kafka.sh
+    cd /opt/tools
+    ./kafka.sh
     ```
 
 13. 启动 Flume
 
     ``` shell
     # 每个节点都要单独做，因为不同节点的 Flume 功能不同
-    ./opt/modules/flume-1.7.0-bin/flume.sh start
+    cd /opt/modules/flume-1.7.0-bin
+    ./flume.sh start
     ```
 
 14. 开始生产并记录日志
 
     ``` shell
     # hadoop-2 和 hadoop-3 去产生日志
-    ./opt/tools/generateLog.sh
+    cd /opt/tools
+    ./generateLog.sh
     # hadoop-1 可以通过 Kafka 的消费端或 Hbase shell 去验证结果 
-    ./opt/modules/kafka_2.11-0.9.0.0/kfk-weblogs-consumer.sh
-    ./opt/modules/hbase-0.98.6-cdh5.3.0/bin/hbase shell
+    cd /opt/modules/kafka_2.11-0.9.0.0
+    ./kfk-weblogs-consumer.sh
+    cd /opt/modules/hbase-0.98.6-cdh5.3.0
+    ./bin/hbase shell
     ```
 
 
@@ -131,7 +144,8 @@
 
     ``` bash
     # Hive 配置成依赖 Mysql，注意检查 Mysql 是否启动，启动后，在 hadoop-3 上初始化 Hive 
-    ./opt/modules/hive-0.13.1-cdh5.3.6/bin/hive
+    cd /opt/modules/hive-0.13.1-cdh5.3.6 
+    ./bin/hive
     # 创建和 weblogs 对应的表结构
     CREATE EXTERNAL TABLE weblogs(
     id string,
@@ -153,7 +167,8 @@
 
     ``` shell
     # 若想在 Hue 中使用 Hive，需在后台开启相应的 Hive 进程
-    nohup ./opt/modules/hive-0.13.1-cdh5.3.6/bin/hiveserver2 &
+    cd /opt/modules/hive-0.13.1-cdh5.3.6
+    nohup ./bin/hiveserver2 &
     ```
 
 17. 编译并启动 Hue
@@ -165,9 +180,20 @@
     # 修改 desktop.db 文件权限和所属用户
     chmod o+w desktop/desktop.db
     # 启动 Hue 服务
-    ./opt/modules/hue-3.9.0-cdh5.5.0/build/env/bin/supervisor
+    cd /opt/modules/hue-3.9.0-cdh5.5.0/build/env/bin
+    ./supervisor
     # 之后便可前往浏览器访问了 http://hadoop-3:8888
     ```
 
-## 待完善
+17. 上传实时数据处理模块
+
+    ``` shell
+    # 进入安装 spark 的机器
+    docker-compose exec --user kfk kfk2 bash
+    # 进入 spark 目录
+    cd /opt/modules/spark-2.2.0-bin
+    # 上传 jar 包
+    ./bin/spark-submit --master local[2] /opt/data/sparkScala.jar
+    # 之后如果 mysql 和 tomcat 部署正常 就可以正常访问了 详情看 web 部分代码
+    ```
 
