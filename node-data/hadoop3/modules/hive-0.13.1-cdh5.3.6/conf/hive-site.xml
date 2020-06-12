@@ -27,7 +27,7 @@
 <property>
   <name>javax.jdo.option.ConnectionURL</name>
   <!-- <value>jdbc:derby:;databaseName=metastore_db;create=true</value> -->
-  <value>jdbc:mysql://172.18.0.1/metastore?createDatabaseIfNotExist=true</value>>
+  <value>jdbc:mysql://172.18.0.1/metastore?createDatabaseIfNotExist=true&amp;characterEncoding=UTF-8</value>>
 </property>
 
 <property>
