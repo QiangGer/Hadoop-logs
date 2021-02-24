@@ -24,7 +24,7 @@
 
 ## 架构
 
-![架构](http://pic.xcq5120.xyz/hadoopNews-structures.png)
+![架构](http://pic.xuecq.cc/hadoopNews-structures.png)
 
 
 
