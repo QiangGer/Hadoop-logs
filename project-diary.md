@@ -24,9 +24,9 @@
  ###  部分效果展示
 
 **容器概览：**
-![集群状态](http://pic.xcq5120.xyz/hadoopNews-day1-1.png)
+![集群状态](http://pic.xuecq.cc/hadoopNews-day1-1.png)
 **节点的主机名，集群的联通性，Java安装检验：**
-![节点状态](http://pic.xcq5120.xyz/hadoopNews-day1-2.png)
+![节点状态](http://pic.xuecq.cc/hadoopNews-day1-2.png)
 
 
 
@@ -61,16 +61,16 @@ ssh 免密配置的部分不知能否在 `Dockerfile` 中解决，从而简化�
  ### 部分效果展示
 
 **MapReduce 的正确性检验：**
-![mr job](http://pic.xcq5120.xyz/hadoopNews-day2-1.png)
+![mr job](http://pic.xuecq.cc/hadoopNews-day2-1.png)
 
 **Yarn 的管理页通过浏览器访问是用户 kfk 在管理**：
-![Yarn管理](http://pic.xcq5120.xyz/hadoopNews-day2-2.png)
+![Yarn管理](http://pic.xuecq.cc/hadoopNews-day2-2.png)
 
 **可以通过浏览器管理 MR 任务的日志**：
-![日志聚合](http://pic.xcq5120.xyz/hadoopNews-day2-3.png)
+![日志聚合](http://pic.xuecq.cc/hadoopNews-day2-3.png)
 
 **配置 ssh 免密后集群的管理**：
-![ssh免密连接](http://pic.xcq5120.xyz/hadoopNews-day2-4.png)
+![ssh免密连接](http://pic.xuecq.cc/hadoopNews-day2-4.png)
 
 
 
@@ -96,7 +96,7 @@ Shell 的四种模式还有疑惑，需要去学习。
  ### 部分效果展示
 
 **启动 ZooKeeper**：
-![ZooKeeper](http://pic.xcq5120.xyz/hadoopNews-day3-1.png)
+![ZooKeeper](http://pic.xuecq.cc/hadoopNews-day3-1.png)
 
 
 
@@ -122,7 +122,7 @@ active 不能正确切换的 debug 。
 
  ### 部分效果展示
 **HDFS HA 的测试**：
-![HDFS HA](http://pic.xcq5120.xyz/hadoopNews-day4-1.png)
+![HDFS HA](http://pic.xuecq.cc/hadoopNews-day4-1.png)
 
 **Yarn HA 可通过浏览器和执行 MapReduce 任务检验，比较繁琐，就不截图了**
 
@@ -152,7 +152,7 @@ active 不能正确切换的 debug 。
 
  ### 部分效果展示
  **Hbase 的测试**：
-![Hbase](http://pic.xcq5120.xyz/hadoopNews-day6-1.png)
+![Hbase](http://pic.xuecq.cc/hadoopNews-day6-1.png)
  **Kafka 的测试**：
 略
 
@@ -222,9 +222,9 @@ hive 模块的集成测试
  ### 部分效果展示
 
  **Hive 的测试**：
-![Hbase](http://pic.xcq5120.xyz/hadoopNews-day10-1.png)
+![Hbase](http://pic.xuecq.cc/hadoopNews-day10-1.png)
  **Hive 的测试**：
-![Hbase](http://pic.xcq5120.xyz/hadoopNews-day10-2.png)
+![Hbase](http://pic.xuecq.cc/hadoopNews-day10-2.png)
 
 
 
@@ -247,7 +247,7 @@ hue 模块的编译集成测试
 
  ### 部分效果展示
  **Hue 的测试**：
-![Hbase](http://pic.xcq5120.xyz/hadoopNews-day11-1.png)
+![Hbase](http://pic.xuecq.cc/hadoopNews-day11-1.png)
 
 
 
@@ -270,9 +270,9 @@ Spark 的基本数据结构需要花时间学习。
 
  ### 部分效果展示
  **Spark 的测试**：
-![Spark](http://pic.xcq5120.xyz/hadoopNews-day12-2.png)
+![Spark](http://pic.xuecq.cc/hadoopNews-day12-2.png)
 **Spark Web UI**：
-![Spark2](http://pic.xcq5120.xyz/hadoopNews-day12-1.png)
+![Spark2](http://pic.xuecq.cc/hadoopNews-day12-1.png)
 
 
 
@@ -309,9 +309,9 @@ Spark on Yarn 模式下，spark-shell 的 webUI 会被随机“Filter”到一�
 
  ### 部分效果展示
  **Spark Standalone**：
-![Spark-standalone](http://pic.xcq5120.xyz/hadoopNews-day13-1.png)
+![Spark-standalone](http://pic.xuecq.cc/hadoopNews-day13-1.png)
 **Spark On Yarn**：
-![Spark-on-yarn](http://pic.xcq5120.xyz/hadoopNews-day13-2.png)
+![Spark-on-yarn](http://pic.xuecq.cc/hadoopNews-day13-2.png)
 
 
 
@@ -350,9 +350,9 @@ Spark SQL 和 HBase 集成后，若运行例如  select count *  命令，则会
 
  ### 部分效果展示
  **Spark SQL 和 Hive 的集成**：
-![Spark-standalone](http://pic.xcq5120.xyz/hadoopNews-day14-1.png)
+![Spark-standalone](http://pic.xuecq.cc/hadoopNews-day14-1.png)
 **Spark SQL 和 HBase 的集成**：
-![Spark-on-yarn](http://pic.xcq5120.xyz/hadoopNews-day14-2.png)
+![Spark-on-yarn](http://pic.xuecq.cc/hadoopNews-day14-2.png)
 
 
 
@@ -380,9 +380,9 @@ Kafka 升级后，原先的 topic 失效了，导致服务无法正常使用，d
  ### 部分效果展示
 
  **基于结构化流完成业务数据实时分析**：
-![Spark-standalone](http://pic.xcq5120.xyz/hadoopNews-day15-1.png)
+![Spark-standalone](http://pic.xuecq.cc/hadoopNews-day15-1.png)
 **基于结构化流完成业务数据实时分析**：
-![Spark-on-yarn](http://pic.xcq5120.xyz/hadoopNews-day15-2.png)
+![Spark-on-yarn](http://pic.xuecq.cc/hadoopNews-day15-2.png)
 
 
 ## day-16
@@ -417,4 +417,4 @@ Docker 内 Tomcat 的配置。
  ### 部分效果展示
 
  **最终效果确认**：
-![Final](http://pic.xcq5120.xyz/hadoopNews-day16-1.png)
+![Final](http://pic.xuecq.cc/hadoopNews-day16-1.png)
